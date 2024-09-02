@@ -1,0 +1,4 @@
+glob2==0.7
+pyyaml==6.0
+ultralytics==8.0.0  # Choose the Yolo version you wish to install
+pathlib==1.0.1
