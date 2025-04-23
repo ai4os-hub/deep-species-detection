@@ -76,8 +76,24 @@ RUN git clone --depth 1 -b $branch https://github.com/ai4os-hub/deep-species-det
     pip3 install --no-cache-dir -e . && \
     cd ..
 
+# Define default YoloV8 models
+ENV YOLOV8_DEFAULT_WEIGHTS="buccinidae,bythograeidae"
+ENV YOLOV8_DEFAULT_TASK_TYPE="det"
+
+# Create directories and download the YOLO weights for Buccinidae and Bythograeidae
+RUN mkdir -p /srv/deep-species-detection/models/buccinidae/weights && \
+    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Buccinidae-detection.pt \
+    --output /srv/deep-species-detection/models/buccinidae/weights/best.pt && \
+    mkdir -p /srv/deep-species-detection/models/bythograeidae/weights && \
+    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Bythograeidae-detection.pt \
+    --output /srv/deep-species-detection/models/bythograeidae/weights/best.pt
+
 # Open ports (deepaas, monitoring, ide)
 EXPOSE 5000 6006 8888
 
 # Launch deepaas
-CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
+CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"] OK
+#CMD ["bash", "-c", "deepaas-run --listen-ip 0.0.0.0 --listen-port 5000 & jupyter lab --ip 0.0.0.0 --port 8888 --allow-root & wait"]
+#CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000", "--jupyter"]
+#CMD ["bash", "-c", "deep-start -j && jupyter lab --ip 0.0.0.0 --port 8888 --allow-root"] OK
+#CMD ["bash", "-c", "deep-start -j && deepaas-run --listen-ip 0.0.0.0 --listen-port 5000 & jupyter lab --ip 0.0.0.0 --port 8888 --allow-root & wait"]
