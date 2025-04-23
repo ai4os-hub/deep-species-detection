@@ -93,7 +93,3 @@ EXPOSE 5000 6006 8888
 
 # Launch deepaas
 CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"] OK
-#CMD ["bash", "-c", "deepaas-run --listen-ip 0.0.0.0 --listen-port 5000 & jupyter lab --ip 0.0.0.0 --port 8888 --allow-root & wait"]
-#CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000", "--jupyter"]
-#CMD ["bash", "-c", "deep-start -j && jupyter lab --ip 0.0.0.0 --port 8888 --allow-root"] OK
-#CMD ["bash", "-c", "deep-start -j && deepaas-run --listen-ip 0.0.0.0 --listen-port 5000 & jupyter lab --ip 0.0.0.0 --port 8888 --allow-root & wait"]
