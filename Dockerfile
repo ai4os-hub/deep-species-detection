@@ -92,4 +92,4 @@ RUN mkdir -p /srv/deep-species-detection/models/buccinidae/weights && \
 EXPOSE 5000 6006 8888
 
 # Launch deepaas
-CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"] OK
+CMD ["deepaas-run", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
