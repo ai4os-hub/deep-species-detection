@@ -82,10 +82,10 @@ ENV YOLOV8_DEFAULT_TASK_TYPE="det"
 
 # Create directories and download the YOLO weights for Buccinid snail and Bythograeid crab
 RUN mkdir -p /srv/deep-species-detection/models/yolov8n_Buccinid_snail/weights && \
-    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Buccinidae-detection.pt \
+    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Buccinidae-detection-EN.pt \
     --output /srv/deep-species-detection/models/yolov8n_Buccinid_snail/weights/best.pt && \
     mkdir -p /srv/deep-species-detection/models/yolov8n_Bythograeid_crab/weights && \
-    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Bythograeidae-detection.pt \
+    curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Bythograeidae-detection-EN.pt \
     --output /srv/deep-species-detection/models/yolov8n_Bythograeid_crab/weights/best.pt
 
 # Open ports (deepaas, monitoring, ide)
