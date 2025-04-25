@@ -77,7 +77,7 @@ RUN git clone --depth 1 -b $branch https://github.com/ai4os-hub/deep-species-det
     cd ..
 
 # Define default YoloV8 models
-ENV YOLOV8_DEFAULT_WEIGHTS="buccinidae,bythograeidae"
+ENV YOLOV8_DEFAULT_WEIGHTS="Buccinid snail, Bythograeid crab"
 ENV YOLOV8_DEFAULT_TASK_TYPE="det"
 
 # Create directories and download the YOLO weights for Buccinidae and Bythograeidae
