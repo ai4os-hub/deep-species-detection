@@ -77,16 +77,16 @@ RUN git clone --depth 1 -b $branch https://github.com/ai4os-hub/deep-species-det
     cd ..
 
 # Define default YoloV8 models
-ENV YOLOV8_DEFAULT_WEIGHTS="Buccinid snail, Bythograeid crab"
+ENV YOLOV8_DEFAULT_WEIGHTS="yolov8n_Buccinid_snail, yolov8n_Bythograeid_crab"
 ENV YOLOV8_DEFAULT_TASK_TYPE="det"
 
-# Create directories and download the YOLO weights for Buccinidae and Bythograeidae
-RUN mkdir -p /srv/deep-species-detection/models/buccinidae/weights && \
+# Create directories and download the YOLO weights for Buccinid snail and Bythograeid crab
+RUN mkdir -p /srv/deep-species-detection/models/yolov8n_Buccinid_snail/weights && \
     curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Buccinidae-detection.pt \
-    --output /srv/deep-species-detection/models/buccinidae/weights/best.pt && \
-    mkdir -p /srv/deep-species-detection/models/bythograeidae/weights && \
+    --output /srv/deep-species-detection/models/yolov8n_Buccinid_snail/weights/best.pt && \
+    mkdir -p /srv/deep-species-detection/models/yolov8n_Bythograeid_crab/weights && \
     curl -L https://github.com/ai4os-hub/deep-species-detection/releases/download/model/YOLOv8-weights-for-Bythograeidae-detection.pt \
-    --output /srv/deep-species-detection/models/bythograeidae/weights/best.pt
+    --output /srv/deep-species-detection/models/yolov8n_Bythograeid_crab/weights/best.pt
 
 # Open ports (deepaas, monitoring, ide)
 EXPOSE 5000 6006 8888

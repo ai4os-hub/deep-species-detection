@@ -63,7 +63,8 @@ class PredArgsSchema(marshmallow.Schema):
             "If not provided, either a model from the MLflow "
             "registry will be loaded (if mlflow_fetch=true) "
             "or the pre-trained default model will be loaded "
-            "depending on the task type."
+            "depending on the task type.",
+        "enum": utils.ls_dirs(config.MODELS_PATH),
         },
         load_default=config.YOLOV8_DEFAULT_WEIGHTS[0],
     )
