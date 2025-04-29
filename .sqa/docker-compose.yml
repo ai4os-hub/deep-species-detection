@@ -2,8 +2,8 @@ version: "3.6"
 
 services:
   thisrepo-testing:
-    container_name: "${BUILD_TAG}"
-    hostname: "${BUILD_TAG}"
+    container_name: "${NODE_NAME}-${EXECUTOR_NUMBER}"
+    hostname: "${NODE_NAME}-${EXECUTOR_NUMBER}"
     working_dir: /srv
     build:
       context: ./.sqa
